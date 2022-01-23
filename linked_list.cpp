@@ -45,6 +45,9 @@ class LinkedList{
 
         // Prints the contents of the linked list starting from the head.
         void print();
+
+        // Trims the list up until a certain value/
+        void trim_up_to(int data);
 };
 
 void LinkedList::push(int data){
@@ -85,6 +88,18 @@ void LinkedList::insert_at_pos(int data, int pos){
      * 2) Insert node between nodes
      * */
 
+    ListNode* temp = this->head;
+    bool found = false;
+    while(temp != nullptr){
+        
+        if(temp->val == data){
+            // Found data to delete.
+            break;
+        }
+
+        temp = temp->next;
+    }
+
 } 
 
 void LinkedList::delete_node(int data){
@@ -92,6 +107,32 @@ void LinkedList::delete_node(int data){
      * 1) Traverse through the list
      * 2) Delete the first node that has the value of data
      * */
+    
+    cout << "Deleting node with data: " << data << "." << endl;
+    ListNode* temp = this->head;
+    ListNode* prev = nullptr;
+    bool found = false;
+    while(temp != nullptr){
+        
+        if(temp->val == data){
+
+            // Head removal
+            if(prev == nullptr){
+                // Delete prev head
+                delete(this->head);
+                this->head = temp;
+                found = true;
+                break;
+            }
+        }
+
+        temp = temp->next;
+    }
+
+    if(!found){
+        cout << "Node with data {" << data << "}not found" << endl;
+    }
+    
 }
 
 void LinkedList::clear(){
@@ -128,6 +169,34 @@ void LinkedList::print(){
 
 }
 
+void trim_up_to(int data){
+    
+    cout << "Deleting node with data: " << data << "." << endl;
+    ListNode* temp = this->head;
+    ListNode* prev = nullptr;
+    bool found = false;
+    while(temp != nullptr){
+        
+        if(temp->val == data){
+
+            // Head removal
+            if(prev == nullptr){
+                // Delete prev head
+                delete(this->head);
+                this->head = temp;
+                found = true;
+                break;
+            }
+        }
+
+        temp = temp->next;
+    }
+
+    if(!found){
+        cout << "Node with data {" << data << "}not found" << endl;
+    } 
+}
+
 
 int main(){
     LinkedList listy;         
@@ -139,7 +208,10 @@ int main(){
     listy.append(1010101);
 
     listy.print();
-    listy.clear();
+    
+    listy.delete_node(3);
+
+
     listy.print();
 
 
