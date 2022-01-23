@@ -65,6 +65,17 @@ void LinkedList::append(int data){
      * 2) Make new node and set curr->next to the new node.
      * 3) Ensure the new node's next is null
      * */
+
+    ListNode* temp = this->head;
+
+    // Go to the end of the list
+    while(temp->next != nullptr){
+        temp = temp->next;
+    }
+    
+    temp->next = new ListNode(data);
+
+
 }
 
 
@@ -125,6 +136,7 @@ int main(){
     listy.push(9);
     listy.push(24);
     listy.push(999);
+    listy.append(1010101);
 
     listy.print();
     listy.clear();
