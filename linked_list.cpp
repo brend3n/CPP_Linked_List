@@ -90,6 +90,16 @@ void LinkedList::clear(){
      * 3) delete the node
      * 4) go to the next node
      * */
+
+    ListNode* temp = nullptr;
+
+    while (this->head){
+        temp = this->head;
+        this->head = this->head->next;
+        delete(temp);
+    }  
+
+    cout << "\nList Cleared\n";
 }
 
 void LinkedList::print(){
@@ -116,6 +126,8 @@ int main(){
     listy.push(24);
     listy.push(999);
 
+    listy.print();
+    listy.clear();
     listy.print();
 
 
