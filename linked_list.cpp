@@ -82,19 +82,22 @@ void LinkedList::append(int data){
 }
 
 
+// Not done
 void LinkedList::insert_at_pos(int data, int pos){
     /*
      * 1) Traverse to the position
      * 2) Insert node between nodes
      * */
 
+    int curr_pos = 0;
+
     ListNode* temp = this->head;
-    bool found = false;
+
     while(temp != nullptr){
         
-        if(temp->val == data){
-            // Found data to delete.
-            break;
+        if(curr_pos == pos){
+            // Found position to insert at.
+           
         }
 
         temp = temp->next;
@@ -102,6 +105,7 @@ void LinkedList::insert_at_pos(int data, int pos){
 
 } 
 
+// Not done
 void LinkedList::delete_node(int data){
     /*
      * 1) Traverse through the list
@@ -169,7 +173,7 @@ void LinkedList::print(){
 
 }
 
-void trim_up_to(int data){
+void LinkedList::trim_up_to(int data){
     
     cout << "Deleting node with data: " << data << "." << endl;
     ListNode* temp = this->head;
@@ -209,7 +213,7 @@ int main(){
 
     listy.print();
     
-    listy.delete_node(3);
+    listy.delete_node(24);
 
 
     listy.print();
